@@ -6,13 +6,22 @@ public class Obstacle : MonoBehaviour
 {
     public int damage;
     public bool remove;
+    public bool instantKill;
+    private int ZERO = 0;
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
-        {
-            other.GetComponent<Player>().health -= damage;
-            Debug.Log(other.GetComponent<Player>().health);
+        {   
+            if (!instantKill)
+            {
+                other.GetComponent<Player>().health -= damage;
+            } else
+            {
+                other.GetComponent<Player>().health = ZERO;
+            }
+            
+      
             if (remove)
             {
                 Destroy(gameObject);
