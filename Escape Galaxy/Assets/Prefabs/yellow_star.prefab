@@ -674,9 +674,10 @@ GameObject:
   - component: {fileID: 5833731164145123788}
   - component: {fileID: 5833731164145123789}
   - component: {fileID: 5833731164145123778}
+  - component: {fileID: 2853023730765210370}
   m_Layer: 0
   m_Name: yellow_star
-  m_TagString: Untagged
+  m_TagString: Star
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -780,6 +781,19 @@ MonoBehaviour:
   remove: 0
   instantKill: 1
   effect: {fileID: 7415271241249593420, guid: 187156a989b82ac4ab1b61441ce56611, type: 3}
+--- !u!114 &2853023730765210370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5833731164145123779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 908dbb8abbd55614cb71aaca9e9c4d2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 5
 --- !u!1 &6121453303731137427
 GameObject:
   m_ObjectHideFlags: 0
