@@ -5,15 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-
-    private bool movingLeft;
     public float playerSpeed;
     public int health;
+
+    private bool movingLeft;
+    private bool firstInput;
 
     // Start is called before the first frame update
     void Start()
     {
         movingLeft = true;
+        firstInput = false;
     }
 
     // Update is called once per frame
@@ -26,25 +28,21 @@ public class Player : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            movingLeft = true;
-        }
-
-        if (!movingLeft)
-        {
-            transform.Translate(Vector2.left * Time.deltaTime * playerSpeed);
-        }
-
-        if (Input.GetMouseButtonDown(0))
-        {
+            firstInput = true;
             movingLeft = !movingLeft;
-            if (!movingLeft)
+        } 
+
+        if (firstInput)
+        {
+            if (movingLeft)
             {
-                transform.Rotate(0, -180, 0);
+                transform.Translate(Vector2.left * Time.deltaTime * playerSpeed);
             }
             else
             {
-                transform.Rotate(0, 180, 0);
+                transform.Translate(Vector2.right * Time.deltaTime * playerSpeed);
             }
         }
+      
     }
 }

@@ -267,6 +267,7 @@ MonoBehaviour:
   damage: 0
   remove: 0
   instantKill: 1
+  effect: {fileID: 0}
 --- !u!212 &352983917
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -450,6 +451,7 @@ MonoBehaviour:
   damage: 0
   remove: 0
   instantKill: 1
+  effect: {fileID: 0}
 --- !u!212 &542476383
 SpriteRenderer:
   m_ObjectHideFlags: 0
