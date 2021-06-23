@@ -9,7 +9,8 @@ public class CleanUp : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
+    {   
+        // remove obstacles after lifetime ends
         Destroy(gameObject, lifetime);
     }
 }
