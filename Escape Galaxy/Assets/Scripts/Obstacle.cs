@@ -23,9 +23,10 @@ public class Obstacle : MonoBehaviour
         {
             if (!instantKill)
             {
-                other.GetComponent<Player>().health -= damage;
                 shake.CamShake();
-            } else
+                other.GetComponent<Player>().health -= damage;
+            } 
+            else
             {   
                 other.GetComponent<Player>().health = ZERO;
             }

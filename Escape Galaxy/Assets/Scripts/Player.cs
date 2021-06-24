@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
     public float playerSpeed;
     public int health;
+    public Text scoreDisplay;
 
     private Shake shake;
     private bool movingLeft;
