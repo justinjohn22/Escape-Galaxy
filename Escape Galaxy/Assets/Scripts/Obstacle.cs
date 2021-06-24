@@ -9,7 +9,13 @@ public class Obstacle : MonoBehaviour
     public bool instantKill;
     public GameObject effect;
 
+    private Shake shake;
     private int ZERO = 0;
+
+    void Start()
+    {
+        shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<Shake>();
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -18,6 +24,7 @@ public class Obstacle : MonoBehaviour
             if (!instantKill)
             {
                 other.GetComponent<Player>().health -= damage;
+                shake.CamShake();
             } else
             {   
                 other.GetComponent<Player>().health = ZERO;
