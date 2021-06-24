@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public float playerSpeed;
     public int health;
 
+    private Shake shake;
     private bool movingLeft;
     private bool firstInput;
 
@@ -16,11 +17,19 @@ public class Player : MonoBehaviour
     {
         movingLeft = true;
         firstInput = false;
+        shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<Shake>();
+   
     }
 
     // Update is called once per frame
     void Update()
-    {   
+    {
+        if (transform.position.y < 2)
+        {
+            shake.CamShake();
+            transform.Translate(Vector2.up * Time.deltaTime * 4);
+        }
+
         if (health <= 0)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
