@@ -8,7 +8,6 @@ public class Player : MonoBehaviour
 {
     public float playerSpeed;
     public int health;
-    public Text scoreDisplay;
 
     private Shake shake;
     private bool movingLeft;
@@ -22,7 +21,6 @@ public class Player : MonoBehaviour
         firstInput = false;
         boost = 4f;
         shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<Shake>();
-   
     }
 
     // Update is called once per frame
@@ -47,6 +45,7 @@ public class Player : MonoBehaviour
 
         if (firstInput)
         {
+       
             if (movingLeft)
             {
                 transform.Translate(Vector2.left * Time.deltaTime * playerSpeed);
