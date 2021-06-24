@@ -11,12 +11,14 @@ public class Player : MonoBehaviour
     private Shake shake;
     private bool movingLeft;
     private bool firstInput;
+    private float boost;
 
     // Start is called before the first frame update
     void Start()
     {
         movingLeft = true;
         firstInput = false;
+        boost = 4f;
         shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<Shake>();
    
     }
@@ -27,7 +29,7 @@ public class Player : MonoBehaviour
         if (transform.position.y < 2)
         {
             shake.CamShake();
-            transform.Translate(Vector2.up * Time.deltaTime * 4);
+            transform.Translate(Vector2.up * Time.deltaTime * boost);
         }
 
         if (health <= 0)
