@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     {
         movingLeft = true;
         firstInput = false;
-        boost = 4f;
+        boost = 4.5f; // defualt = 4
         shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<Shake>();
     }
 
