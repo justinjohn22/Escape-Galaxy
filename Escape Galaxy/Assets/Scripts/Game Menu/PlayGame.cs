@@ -9,4 +9,10 @@ public class PlayGame : MonoBehaviour
     {
         SceneManager.LoadScene("GameScene");
     }
+
+    public void home()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
 }

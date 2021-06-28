@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
 
         if (health <= 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene("GameOver");
         }
 
         if (Input.GetMouseButtonDown(0))

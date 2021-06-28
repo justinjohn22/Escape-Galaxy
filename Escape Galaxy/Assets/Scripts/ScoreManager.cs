@@ -21,5 +21,10 @@ public class ScoreManager : MonoBehaviour
             score++;
             Debug.Log(score);
         }
+
+        if (score > PlayerPrefs.GetInt("HighScore"))
+        {
+            PlayerPrefs.SetInt("HighScore", score);
+        }
     }
 }
