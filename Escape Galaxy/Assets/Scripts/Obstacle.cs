@@ -10,7 +10,7 @@ public class Obstacle : MonoBehaviour
     public GameObject effect;
 
     private Shake shake;
-    private int ZERO = 0;
+    private int KILL_VALUE = -1;
 
     void Start()
     {
@@ -28,7 +28,7 @@ public class Obstacle : MonoBehaviour
             } 
             else
             {   
-                other.GetComponent<Player>().health = ZERO;
+                other.GetComponent<Player>().health = KILL_VALUE;
             }
             
             if (remove)

@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public float playerSpeed;
     public int health;
     public Text coinDisplay;
+    public Text healthDisplay;
     public int coin;
 
     private Shake shake;
@@ -30,6 +31,7 @@ public class Player : MonoBehaviour
     {
 
         coinDisplay.text = coin.ToString();
+        healthDisplay.text = health.ToString();
 
         if (transform.position.y < 2)
         {
@@ -37,7 +39,7 @@ public class Player : MonoBehaviour
             transform.Translate(Vector2.up * Time.deltaTime * boost);
         }
 
-        if (health <= 0)
+        if (health < 0)
         {
             SceneManager.LoadScene("GameOver");
         }
