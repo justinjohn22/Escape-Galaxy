@@ -875,6 +875,8 @@ GameObject:
   - component: {fileID: 7380213890428497962}
   - component: {fileID: 7652193480480180653}
   - component: {fileID: 6056318852514906851}
+  - component: {fileID: 2989943703395555196}
+  - component: {fileID: 735959542291898552}
   m_Layer: 0
   m_Name: Loot
   m_TagString: Untagged
@@ -966,3 +968,33 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!58 &2989943703395555196
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6772241547538665967}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2.27
+--- !u!114 &735959542291898552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6772241547538665967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6568fc8a78b50c14691bf0a00f419262, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coin: 0
+  coinDisplay: {fileID: 3184608186399160149, guid: da9849b86d0df7e41ba297eae1d76269, type: 3}
