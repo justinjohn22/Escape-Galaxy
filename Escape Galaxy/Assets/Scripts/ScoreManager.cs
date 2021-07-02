@@ -8,19 +8,18 @@ public class ScoreManager : MonoBehaviour
 {
     public int score;
     public Text scoreDisplay;
-
-    void Start()
-    {
-       
-    }
+    private int coin;
 
     void OnTriggerEnter2D(Collider2D other)
     {
         scoreDisplay.text = score.ToString();
         if (other.CompareTag("Star"))
         {
+            coin += 2;
             score++;
-            Debug.Log(score);
+            PlayerPrefs.SetInt("Coin", PlayerPrefs.GetInt("Coin") + 2);
+            PlayerPrefs.SetInt("CurrentCoin", coin);
+            // Debug.Log(score);
         }
 
         if (score > PlayerPrefs.GetInt("HighScore"))

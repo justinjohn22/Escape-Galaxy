@@ -8,9 +8,8 @@ public class Player : MonoBehaviour
 {
     public float playerSpeed;
     public int health;
-    public Text coinDisplay;
     public Text healthDisplay;
-    public int coin;
+ 
 
     private Shake shake;
     private bool movingLeft;
@@ -29,8 +28,6 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        coinDisplay.text = coin.ToString();
         healthDisplay.text = health.ToString();
 
         if (transform.position.y < 2)
