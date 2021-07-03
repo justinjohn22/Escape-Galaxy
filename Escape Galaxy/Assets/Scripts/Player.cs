@@ -16,6 +16,10 @@ public class Player : MonoBehaviour
     private bool firstInput;
     private float boost;
 
+    private bool sideBoost;
+
+    private float startTime, endTime;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +27,8 @@ public class Player : MonoBehaviour
         firstInput = false;
         boost = 4.5f; // defualt = 4
         shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<Shake>();
+        sideBoost = false;
+    
     }
 
     // Update is called once per frame
@@ -45,20 +51,40 @@ public class Player : MonoBehaviour
         {
             firstInput = true;
             movingLeft = !movingLeft;
+            startTime = Time.time;
+            sideBoost = true;
         } 
 
-        if (firstInput)
+        if (Input.GetMouseButtonUp(0))
         {
+            startTime = 0;
+            sideBoost = false;
+        }
+
+        Debug.Log(endTime - startTime);
+
+        if (firstInput)
+        {   
+ 
+            if (movingLeft && startTime > 0.1f)
+            {
+                transform.Translate(Vector2.left * Time.deltaTime * playerSpeed * 1.5f);
+            } 
+            else if (!movingLeft && startTime > 0.1f)
+            {
+                transform.Translate(Vector2.right * Time.deltaTime * playerSpeed * 1.5f);   
+            }
        
-            if (movingLeft)
+            else if (movingLeft && !sideBoost)
             {
                 transform.Translate(Vector2.left * Time.deltaTime * playerSpeed);
             }
-            else
+            else if (!movingLeft && !sideBoost)
             {
                 transform.Translate(Vector2.right * Time.deltaTime * playerSpeed);
             }
-        }
+            
+        } 
       
     }
 }
