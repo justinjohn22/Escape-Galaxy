@@ -75,11 +75,11 @@ public class Player : MonoBehaviour
  
             if (movingLeft && startTime > 0.1f)
             {
-                transform.Translate(Vector2.left * Time.deltaTime * playerSpeed * 1.255f);
+                transform.Translate(Vector2.left * Time.deltaTime * playerSpeed * 1.3f);
             } 
             else if (!movingLeft && startTime > 0.1f)
             {
-                transform.Translate(Vector2.right * Time.deltaTime * playerSpeed * 1.255f);   
+                transform.Translate(Vector2.right * Time.deltaTime * playerSpeed * 1.3f);   
             }
        
             else if (movingLeft)

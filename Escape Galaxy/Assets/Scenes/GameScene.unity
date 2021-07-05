@@ -756,6 +756,9 @@ MonoBehaviour:
   - {fileID: 1619685610199386587, guid: 8805c329f10387e4fb1b4370129ee135, type: 3}
   - {fileID: 690849873881570927, guid: 59618de4a3f60aa4195b6f30e4ca3bfb, type: 3}
   - {fileID: 8861329234540585286, guid: 5de6d52b06cd8e242989398c62c09e24, type: 3}
+  - {fileID: 879653484854505830, guid: da78665671e8a0e48be4b7d6c7506f42, type: 3}
+  - {fileID: 2863533450180467365, guid: 461313a7e53613e4ba5f73f0332aa233, type: 3}
+  - {fileID: 831973342546356531, guid: 6485fba855cfa6548bd8cc771dee9192, type: 3}
   startTimeBtwSpawn: 2.3
   decreaseTime: 0.03
   minTime: 1.3
@@ -1389,7 +1392,7 @@ MonoBehaviour:
   playerSpeed: 2.45
   health: 3
   fuel: 60
-  fuelDecrement: 0.04
+  fuelDecrement: 0.06
   healthDisplay: {fileID: 978657834}
   fuelDisplay: {fileID: 1127372291}
 --- !u!212 &1921511529
