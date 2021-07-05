@@ -112,7 +112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df94156b8879d2f46a4b62884cc1f19a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fuelIncrement: 5
+  fuelIncrement: 7
+  blackHole: 0
 --- !u!1 &2290956866578824306
 GameObject:
   m_ObjectHideFlags: 0
