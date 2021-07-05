@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     private bool firstInput;
     private float boost;
 
-    private bool sideBoost;
+   
 
     private float startTime, endTime;
 
@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
         firstInput = false;
         boost = 4.5f; // defualt = 4
         shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<Shake>();
-        sideBoost = false;
+       
     
     }
 
@@ -59,13 +59,13 @@ public class Player : MonoBehaviour
             firstInput = true;
             movingLeft = !movingLeft;
             startTime = Time.time;
-            sideBoost = true;
+           
         } 
 
         if (Input.GetMouseButtonUp(0))
         {
             startTime = 0;
-            sideBoost = false;
+            
         }
 
         Debug.Log(endTime - startTime);

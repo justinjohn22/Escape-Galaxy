@@ -209,7 +209,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 476, y: -1.68}
+  m_AnchoredPosition: {x: 492.86, y: -2.13}
   m_SizeDelta: {x: 1.17, y: 1.12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!50 &352983914
@@ -365,6 +365,7 @@ RectTransform:
   - {fileID: 352983913}
   - {fileID: 1745298935}
   - {fileID: 1127372290}
+  - {fileID: 1981040546}
   m_Father: {fileID: 59881353}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -810,7 +811,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -107, y: -296.2}
+  m_AnchoredPosition: {x: -107, y: -43.2}
   m_SizeDelta: {x: 439.20667, y: 127.11536}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &978657834
@@ -999,7 +1000,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -107, y: -412.3}
+  m_AnchoredPosition: {x: -107, y: -142.2}
   m_SizeDelta: {x: 439.20667, y: 127.11536}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1127372291
@@ -1121,7 +1122,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -390.4, y: -296.2}
+  m_AnchoredPosition: {x: -390.4, y: -43.2}
   m_SizeDelta: {x: 1.17, y: 1.12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &1388288530
@@ -1302,7 +1303,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -390.4, y: -407.6}
+  m_AnchoredPosition: {x: -390.4, y: -142.2}
   m_SizeDelta: {x: 1.17, y: 1.12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &1745298936
@@ -1614,6 +1615,56 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 1
   m_Emitting: 1
+--- !u!1 &1981040545
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1981040546}
+  - component: {fileID: 1981040547}
+  m_Layer: 0
+  m_Name: Fuel Increment Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1981040546
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981040545}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 406622371}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -390.4, y: -132.06}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1981040547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981040545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e97eb513ba76384c99a9c178402998b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fuelBg: {fileID: 6263308613966560043, guid: 5de7824e978440a4db1e697ad8f1172a, type: 3}
+  fuelBgRed: {fileID: 6956327003216833991, guid: 4ecd50310db83e347b96930ce8668513, type: 3}
 --- !u!1 &2091764446
 GameObject:
   m_ObjectHideFlags: 0
