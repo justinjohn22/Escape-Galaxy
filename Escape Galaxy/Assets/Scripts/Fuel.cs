@@ -6,41 +6,48 @@ public class Fuel : MonoBehaviour
 {
     public float fuelIncrement;
     public bool blackHole;
-  //  public GameObject fuelBg;
+    //  public GameObject fuelBg;
+
+    private int MAX_FUEL = 100;
+    private int FUEL_INCREMENT_BOUNDARY = 93;
 
     void OnTriggerEnter2D(Collider2D other)
-    {
+    {   
+
         if (other.CompareTag("Player"))
-        {   
-            if (other.GetComponent<Player>().fuel <= 95)
+        {
+            if (blackHole)
             {
-               // Instantiate(fuelBg, transform.position, Quaternion.identity);
+                fuelIncrement = other.GetComponent<Player>().fuel * 0.20f * -1;
+            }
+
+            // Debug.Log("Fuel Increment Value: " + fuelIncrement.ToString());
+
+            if (other.GetComponent<Player>().fuel <= FUEL_INCREMENT_BOUNDARY)
+            {
                 other.GetComponent<Player>().fuel += fuelIncrement;
-                if (!blackHole)
-                {
-                    PlayerPrefs.SetInt("FuelSpawn", 1);
-                } else
-                {
-                    PlayerPrefs.SetInt("FuelSpawn", 2);
-                }
-                
+                displayFuelChange();
+
             } 
-            else if (other.GetComponent<Player>().fuel >= 95)
+            else if (other.GetComponent<Player>().fuel >= FUEL_INCREMENT_BOUNDARY)
             {
-               // Instantiate(fuelBg, transform.position, Quaternion.identity);
-                other.GetComponent<Player>().fuel = 100;
-                if (!blackHole)
-                {
-                    PlayerPrefs.SetInt("FuelSpawn", 1);
-                }
-                else
-                {
-                    PlayerPrefs.SetInt("FuelSpawn", 2);
-                }
+                other.GetComponent<Player>().fuel = MAX_FUEL;
+                displayFuelChange();
             }
            
         }
 
+    }
 
+    private void displayFuelChange()
+    {
+        if (!blackHole)
+        {
+            PlayerPrefs.SetInt("FuelSpawn", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("FuelSpawn", 2);
+        }
     }
 }

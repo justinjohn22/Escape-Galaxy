@@ -13,5 +13,6 @@ public class TotalCoin : MonoBehaviour
     {
         loot.text = PlayerPrefs.GetInt("Coin").ToString();
     }
-    
 }
+    
+

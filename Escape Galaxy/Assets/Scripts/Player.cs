@@ -31,8 +31,6 @@ public class Player : MonoBehaviour
         firstInput = false;
         boost = 4.5f; // defualt = 4
         shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<Shake>();
-       
-    
     }
 
     // Update is called once per frame
@@ -68,7 +66,7 @@ public class Player : MonoBehaviour
             
         }
 
-        Debug.Log(endTime - startTime);
+        // Debug.Log(endTime - startTime);
 
         if (firstInput)
         {   
@@ -81,7 +79,6 @@ public class Player : MonoBehaviour
             {
                 transform.Translate(Vector2.right * Time.deltaTime * playerSpeed * 1.3f);   
             }
-       
             else if (movingLeft)
             {
                 transform.Translate(Vector2.left * Time.deltaTime * playerSpeed);
@@ -89,8 +86,8 @@ public class Player : MonoBehaviour
             else if (!movingLeft)
             {
                 transform.Translate(Vector2.right * Time.deltaTime * playerSpeed);
-            }
-            
+            } 
+      
         } 
       
     }
