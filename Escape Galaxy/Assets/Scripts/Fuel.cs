@@ -18,7 +18,7 @@ public class Fuel : MonoBehaviour
         {
             if (blackHole)
             {
-                fuelIncrement = other.GetComponent<Player>().fuel * 0.20f * -1;
+                fuelIncrement = other.GetComponent<Player>().fuel * 0.35f * -1;
             }
 
             // Debug.Log("Fuel Increment Value: " + fuelIncrement.ToString());
