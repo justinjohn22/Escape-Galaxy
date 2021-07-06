@@ -8,7 +8,9 @@ public class ScoreManager : MonoBehaviour
 {
     public int score;
     public Text scoreDisplay;
+    
     private int coin;
+    private int COIN_INCREMENT = 2;
 
     void OnTriggerEnter2D(Collider2D other)
     {   
@@ -18,11 +20,11 @@ public class ScoreManager : MonoBehaviour
         if (other.CompareTag("Star"))
         {   
             // add score and coin if star has collided with score manager
-            coin += 2;
+            coin += COIN_INCREMENT;
             score++;
             
             // values stored to be used later in other scripts 
-            PlayerPrefs.SetInt("Coin", PlayerPrefs.GetInt("Coin") + 2);
+            PlayerPrefs.SetInt("Coin", PlayerPrefs.GetInt("Coin") + COIN_INCREMENT);
             PlayerPrefs.SetInt("CurrentCoin", coin);
             PlayerPrefs.SetInt("TempScore", score);
             // Debug.Log(score);
