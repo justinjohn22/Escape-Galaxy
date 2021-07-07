@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Star
   - ScreenShake
+  - Player Position
   layers:
   - Default
   - TransparentFX

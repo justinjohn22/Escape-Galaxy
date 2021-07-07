@@ -13,14 +13,15 @@ public class Player : MonoBehaviour
     public float fuelDecrement;
     public Text healthDisplay;
     public Text fuelDisplay;
-
+    public int playerIndex;
 
     private Shake shake;
     private bool movingLeft;
     private bool firstInput;
     private float boost;
+    private bool stopBoost;
 
-   
+    private bool deleteThis;
 
     private float startTime, endTime;
 
@@ -29,8 +30,22 @@ public class Player : MonoBehaviour
     {
         movingLeft = true;
         firstInput = false;
+        stopBoost = false;
         boost = 4.5f; // defualt = 4
         shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<Shake>();
+
+        if (PlayerPrefs.GetInt("SelectedPlayer") != playerIndex) {
+            Destroy(gameObject, 0);
+        }
+
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player Position"))
+        {
+            stopBoost = true;
+        }
     }
 
     // Update is called once per frame
@@ -40,8 +55,10 @@ public class Player : MonoBehaviour
         fuelDisplay.text = Math.Round(fuel).ToString();
 
         fuel -= fuelDecrement;
-     
-        if (transform.position.y < 2)
+
+
+        // defaul -> transform.position.y < 2
+        if (!stopBoost)
         {
             shake.CamShake();
             transform.Translate(Vector2.up * Time.deltaTime * boost);
