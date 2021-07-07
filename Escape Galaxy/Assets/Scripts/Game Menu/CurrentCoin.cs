@@ -8,6 +8,7 @@ public class CurrentCoin : MonoBehaviour
 
     public Text coinsCollected;
     public Text currentScore;
+    public Text totalCoin;
 
     private int RESET_VALUE = 0;
 
@@ -17,10 +18,12 @@ public class CurrentCoin : MonoBehaviour
         // display the most resent score and coins collected by the player 
         coinsCollected.text = "+" + PlayerPrefs.GetInt("CurrentCoin").ToString();
         currentScore.text = PlayerPrefs.GetInt("TempScore").ToString();
+        totalCoin.text = PlayerPrefs.GetInt("Coin").ToString();
 
         // reset values to be used again
         PlayerPrefs.SetInt("CurrentCoin", RESET_VALUE);
         PlayerPrefs.SetInt("TempScore", RESET_VALUE);
+        
     }
 
 }
