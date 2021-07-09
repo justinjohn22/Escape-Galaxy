@@ -1041,6 +1041,11 @@ MonoBehaviour:
   - {fileID: 3790381340333743605, guid: d12dcb25b9e0681459bb740c57a80d72, type: 3}
   - {fileID: 4520552625206235712, guid: 84e56bffeed139c4fadcb7ca4942a810, type: 3}
   - {fileID: 1720741278247952540, guid: 0fb4b3cbd5a7a994b8cba74837a7f9a3, type: 3}
+  - {fileID: 4414716867731939628, guid: e8f6940c7f80de54eabc5ba62dbbf5a2, type: 3}
+  - {fileID: 842538248247324476, guid: 49dd6164fe3beb444b95668e30bd8bc1, type: 3}
+  - {fileID: 1917452003676625758, guid: b985c65b7729a8c45be4643a75cdabba, type: 3}
+  - {fileID: 6644828961031133536, guid: f932944b68078284a97fd34d784816ed, type: 3}
+  - {fileID: 2995585546579786760, guid: 8ff90ed4f60cf384ca4e822426714196, type: 3}
   startTimeBtwSpawn: 2.3
   decreaseTime: 0.03
   minTime: 1.5

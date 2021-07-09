@@ -9,6 +9,7 @@ public class CurrentCoin : MonoBehaviour
     public Text coinsCollected;
     public Text currentScore;
     public Text totalCoin;
+    public Text highScore;
 
     private int RESET_VALUE = 0;
     private float startTime;
@@ -21,12 +22,13 @@ public class CurrentCoin : MonoBehaviour
         score = PlayerPrefs.GetInt("TempScore");
         coin = PlayerPrefs.GetInt("Coin") - PlayerPrefs.GetInt("CurrentCoin");
         
-        Debug.Log("coin: " + coin);
+        // Debug.Log("coin: " + coin);
         coinCollected = PlayerPrefs.GetInt("CurrentCoin");
   
         // display the most resent score and coins collected by the player 
         coinsCollected.text = "+" + PlayerPrefs.GetInt("CurrentCoin").ToString();
         currentScore.text = PlayerPrefs.GetInt("TempScore").ToString();
+        highScore.text = PlayerPrefs.GetInt("HighScore").ToString();
 
         // if current coin is zero, update if statement won't be called
         if (coinCollected == 0)
