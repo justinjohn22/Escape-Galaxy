@@ -938,7 +938,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 2.45
-  health: 3
+  health: 900
   fuel: 60
   fuelDecrement: 0.05
   healthDisplay: {fileID: 978657834}
