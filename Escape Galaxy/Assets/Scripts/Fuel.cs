@@ -30,8 +30,12 @@ public class Fuel : MonoBehaviour
 
             } 
             else if (other.GetComponent<Player>().fuel >= FUEL_INCREMENT_BOUNDARY)
-            {
-                other.GetComponent<Player>().fuel = MAX_FUEL;
+            {   
+                if (!blackHole)
+                {
+                    other.GetComponent<Player>().fuel = MAX_FUEL;
+                }
+                
                 displayFuelChange();
             }
            
