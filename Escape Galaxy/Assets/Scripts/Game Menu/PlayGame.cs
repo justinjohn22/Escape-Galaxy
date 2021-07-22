@@ -17,4 +17,11 @@ public class PlayGame : MonoBehaviour
         SceneManager.LoadScene("Menu");
     }
 
+    public void shop()
+    {
+        // load main menu
+        SceneManager.LoadScene("Shop");
+    }
+
+
 }

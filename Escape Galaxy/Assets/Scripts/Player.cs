@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     private bool firstInput;
     private float boost;
     private bool stopBoost;
+    private float sideBoost;
 
     private bool deleteThis;
 
@@ -32,10 +33,15 @@ public class Player : MonoBehaviour
         firstInput = false;
         stopBoost = false;
         boost = 4.5f; // defualt = 4
+        sideBoost = 1.3f;
         shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<Shake>();
 
         if (PlayerPrefs.GetInt("SelectedPlayer") != playerIndex) {
             Destroy(gameObject, 0);
+        }
+        if (PlayerPrefs.GetInt("SelectedPlayer") == 2)
+        {
+            sideBoost = 1.58f;
         }
 
     }
@@ -90,11 +96,11 @@ public class Player : MonoBehaviour
  
             if (movingLeft && startTime > 0.1f)
             {
-                transform.Translate(Vector2.left * Time.deltaTime * playerSpeed * 1.3f);
+                transform.Translate(Vector2.left * Time.deltaTime * playerSpeed * sideBoost);
             } 
             else if (!movingLeft && startTime > 0.1f)
             {
-                transform.Translate(Vector2.right * Time.deltaTime * playerSpeed * 1.3f);   
+                transform.Translate(Vector2.right * Time.deltaTime * playerSpeed * sideBoost);   
             }
             else if (movingLeft)
             {
