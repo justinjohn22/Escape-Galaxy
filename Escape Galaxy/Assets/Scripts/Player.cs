@@ -41,7 +41,7 @@ public class Player : MonoBehaviour
         }
         if (PlayerPrefs.GetInt("SelectedPlayer") == 2)
         {
-            sideBoost = 1.58f;
+            sideBoost = 1.48f;
         }
 
     }
