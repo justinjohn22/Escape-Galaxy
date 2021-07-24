@@ -10,8 +10,6 @@ public class ShopManager : MonoBehaviour
     public Text shipTwoText;
     public Text shipThreeText;
 
-
-
     void Start()
     {
         Text[] textArray = new Text[] { shipOneText, shipTwoText, shipThreeText };
@@ -54,7 +52,7 @@ public class ShopManager : MonoBehaviour
         {
             if (i != index)
             {
-                textArray[i].text = "Select";
+                textArray[i].text = "SELECT";
             }
         }
     }
