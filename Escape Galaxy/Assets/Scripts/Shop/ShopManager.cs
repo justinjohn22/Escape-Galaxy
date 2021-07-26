@@ -95,7 +95,7 @@ public class ShopManager : MonoBehaviour
         {
             if (PlayerPrefs.GetInt("Coin") - SHIP_THREE_COST >= 0)
             {
-                PlayerPrefs.SetInt("Coin", PlayerPrefs.GetInt("Coin") - SHIP_TWO_COST);
+                PlayerPrefs.SetInt("Coin", PlayerPrefs.GetInt("Coin") - SHIP_THREE_COST);
                 PlayerPrefs.SetInt("ShipThree", 1);
                 shipThreeText.text = "SELECT";
             }
