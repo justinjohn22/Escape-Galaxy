@@ -12,7 +12,6 @@ public class ShopManager : MonoBehaviour
 
     public Text totalCoins;
 
-
     private int SHIP_TWO_COST = 550;
     private int SHIP_THREE_COST = 850;
 
