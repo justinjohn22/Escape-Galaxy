@@ -41,7 +41,7 @@ public class Player : MonoBehaviour
         }
         if (PlayerPrefs.GetInt("SelectedPlayer") == 2)
         {
-            sideBoost = 1.48f;
+            sideBoost = 1.5f;
         }
 
     }
@@ -80,13 +80,11 @@ public class Player : MonoBehaviour
             firstInput = true;
             movingLeft = !movingLeft;
             startTime = Time.time;
-           
         } 
 
         if (Input.GetMouseButtonUp(0))
         {
-            startTime = 0;
-            
+            startTime = 0; 
         }
 
         // Debug.Log(endTime - startTime);
@@ -94,11 +92,11 @@ public class Player : MonoBehaviour
         if (firstInput)
         {   
  
-            if (movingLeft && startTime > 0.1f)
+            if (movingLeft && startTime > 1f)
             {
                 transform.Translate(Vector2.left * Time.deltaTime * playerSpeed * sideBoost);
             } 
-            else if (!movingLeft && startTime > 0.1f)
+            else if (!movingLeft && startTime > 1f)
             {
                 transform.Translate(Vector2.right * Time.deltaTime * playerSpeed * sideBoost);   
             }
