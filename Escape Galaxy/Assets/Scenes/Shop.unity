@@ -365,7 +365,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1912687515}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
-        m_MethodName: shipThree
+        m_MethodName: shipFour
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -567,7 +567,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.12972179, y: 0.23264311}
   m_AnchorMax: {x: 0.20419551, y: 0.27800003}
-  m_AnchoredPosition: {x: 0, y: -1.7000122}
+  m_AnchoredPosition: {x: 0, y: -1.7000113}
   m_SizeDelta: {x: -47.115387, y: -43.27465}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &436396168
@@ -691,7 +691,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 850
+  m_Text: 1000
 --- !u!222 &463859001
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1638,11 +1638,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5778491933510969494, guid: 0c7aa7a02e46e3d478fc347bfb4dfc8e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 99
+      value: 101
       objectReference: {fileID: 0}
     - target: {fileID: 5778491933510969494, guid: 0c7aa7a02e46e3d478fc347bfb4dfc8e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5778491933510969494, guid: 0c7aa7a02e46e3d478fc347bfb4dfc8e, type: 3}
       propertyPath: m_LocalScale.x
@@ -1666,7 +1666,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6278737393950147791, guid: 0c7aa7a02e46e3d478fc347bfb4dfc8e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 490
+      value: 486
       objectReference: {fileID: 0}
     - target: {fileID: 6278737393950147791, guid: 0c7aa7a02e46e3d478fc347bfb4dfc8e, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -2553,6 +2553,7 @@ MonoBehaviour:
   shipOneText: {fileID: 1734558606}
   shipTwoText: {fileID: 90958457}
   shipThreeText: {fileID: 859994083}
+  shipFourText: {fileID: 138274998}
   totalCoins: {fileID: 701401148}
 --- !u!114 &1912687516
 MonoBehaviour:
