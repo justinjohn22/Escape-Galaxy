@@ -44,6 +44,11 @@ public class Player : MonoBehaviour
             sideBoost = 1.5f;
         }
 
+        if (PlayerPrefs.GetInt("SelectedPlayer") == 3)
+        {
+            fuelDecrement = 0.04f;
+        }
+
     }
 
     void OnTriggerEnter2D(Collider2D other)

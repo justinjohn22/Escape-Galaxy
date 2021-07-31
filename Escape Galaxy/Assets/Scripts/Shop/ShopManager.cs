@@ -9,25 +9,28 @@ public class ShopManager : MonoBehaviour
     public Text shipOneText;
     public Text shipTwoText;
     public Text shipThreeText;
+    public Text shipFourText;
 
     public Text totalCoins;
 
     private int SHIP_TWO_COST = 550;
     private int SHIP_THREE_COST = 850;
+    private int SHIP_FOUR_COST = 1000;
 
     void Start()
     {
         // default ship 
         PlayerPrefs.SetInt("ShipOne", 1);
-
+      
+     
         // initial text setup for selected ship
-        Text[] textArray = new Text[] { shipOneText, shipTwoText, shipThreeText };
-        string[] savedList = new string[] { "ShipOne", "ShipTwo", "ShipThree" };
+        Text[] textArray = new Text[] { shipOneText, shipTwoText, shipThreeText, shipFourText };
+        string[] savedList = new string[] { "ShipOne", "ShipTwo", "ShipThree", "ShipFour" };
 
 
         textArray[PlayerPrefs.GetInt("SelectedPlayer")].text = "SELECTED";
 
-        for (int i = 0; i < 3; ++i)
+        for (int i = 0; i < 4; ++i)
         {   
             if (PlayerPrefs.GetInt(savedList[i]) == 0)
             {
@@ -101,13 +104,36 @@ public class ShopManager : MonoBehaviour
         }
     }
 
+    // shop logic for ship 4
+    public void shipFour()
+    {
+        // Debug.Log("Ship 2");
+
+        if (PlayerPrefs.GetInt("ShipFour", 0) == 1)
+        {
+            PlayerPrefs.SetInt("SelectedPlayer", 3);
+            shipFourText.text = "SELECTED";
+            ResetText(3);
+            LoadGameScene();
+        }
+        else if (PlayerPrefs.GetInt("ShipFour", 0) == 0)
+        {
+            if (PlayerPrefs.GetInt("Coin") - SHIP_FOUR_COST >= 0)
+            {
+                PlayerPrefs.SetInt("Coin", PlayerPrefs.GetInt("Coin") - SHIP_FOUR_COST);
+                PlayerPrefs.SetInt("ShipFour", 1);
+                shipFourText.text = "SELECT";
+            }
+        }
+    }
+
     // resets all other ship text back to 'select' once a ship is 'selected'
     private void ResetText(int index)
     {
-        Text[] textArray = new Text[] { shipOneText, shipTwoText, shipThreeText };
-        string[] savedList = new string[] { "ShipOne", "ShipTwo", "ShipThree" };
+        Text[] textArray = new Text[] { shipOneText, shipTwoText, shipThreeText, shipFourText };
+        string[] savedList = new string[] { "ShipOne", "ShipTwo", "ShipThree", "ShipFour" };
 
-        for (int i = 0; i < 3; ++i)
+        for (int i = 0; i < 4; ++i)
         {
             if (i != index && PlayerPrefs.GetInt(savedList[i]) == 1)
             {
