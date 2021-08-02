@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6344863755883015836}
   m_Layer: 0
   m_Name: fuel_bg_rd
-  m_TagString: Untagged
+  m_TagString: FuelSpawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
