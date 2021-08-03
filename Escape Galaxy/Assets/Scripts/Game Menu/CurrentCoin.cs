@@ -10,6 +10,7 @@ public class CurrentCoin : MonoBehaviour
     public Text currentScore;
     public Text totalCoin;
     public Text highScore;
+    public Text GameOverCause;
 
     private int RESET_VALUE = 0;
     private float startTime;
@@ -21,7 +22,16 @@ public class CurrentCoin : MonoBehaviour
         // getting values from player prefs
         score = PlayerPrefs.GetInt("TempScore");
         coin = PlayerPrefs.GetInt("Coin") - PlayerPrefs.GetInt("CurrentCoin");
-        
+
+        if (PlayerPrefs.GetString("GameOverCause").Equals("health"))
+        {
+            GameOverCause.text = "Ship Destroyed!";
+        } 
+        else if (PlayerPrefs.GetString("GameOverCause").Equals("fuel"))
+        {
+            GameOverCause.text = "Out of Fuel!";
+        }
+
         // Debug.Log("coin: " + coin);
         coinCollected = PlayerPrefs.GetInt("CurrentCoin");
   

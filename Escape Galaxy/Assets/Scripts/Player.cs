@@ -67,7 +67,6 @@ public class Player : MonoBehaviour
 
         fuel -= fuelDecrement;
 
-
         // defaul -> transform.position.y < 2
         if (!stopBoost)
         {
@@ -76,7 +75,15 @@ public class Player : MonoBehaviour
         }
 
         if (health < 0 || fuel <= 0)
-        {
+        {   
+            if (health < 0)
+            {
+                PlayerPrefs.SetString("GameOverCause", "health");
+            } 
+            if (fuel <= 0)
+            {
+                PlayerPrefs.SetString("GameOverCause", "fuel");
+            }
             SceneManager.LoadScene("GameOver");
         }
 
