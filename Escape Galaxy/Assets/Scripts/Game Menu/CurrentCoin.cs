@@ -52,7 +52,7 @@ public class CurrentCoin : MonoBehaviour
 
     void Update()
     {   
-        // to animation coins being added up in game over scene
+        // to animate coins being added up in game over scene
         startTime = Time.time;
         if (startTime > 10.0f) // to slow to addition and substraction
         {

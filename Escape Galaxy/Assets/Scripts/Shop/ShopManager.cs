@@ -11,6 +11,7 @@ public class ShopManager : MonoBehaviour
     public Text shipThreeText;
     public Text shipFourText;
     public Text shipFiveText;
+    public Text shipSixText;
 
     public Text totalCoins;
 
@@ -18,6 +19,9 @@ public class ShopManager : MonoBehaviour
     private int SHIP_THREE_COST = 850;
     private int SHIP_FOUR_COST = 1350;
     private int SHIP_FIVE_COST = 1850;
+    private int SHIP_SIX_COST = 15;
+
+    private int shipNumber = 6;
 
     void Start()
     {
@@ -25,13 +29,13 @@ public class ShopManager : MonoBehaviour
         PlayerPrefs.SetInt("ShipOne", 1);
      
         // initial text setup for selected ship
-        Text[] textArray = new Text[] { shipOneText, shipTwoText, shipThreeText, shipFourText, shipFiveText };
-        string[] savedList = new string[] { "ShipOne", "ShipTwo", "ShipThree", "ShipFour", "ShipFive" };
+        Text[] textArray = new Text[] { shipOneText, shipTwoText, shipThreeText, shipFourText, shipFiveText, shipSixText };
+        string[] savedList = new string[] { "ShipOne", "ShipTwo", "ShipThree", "ShipFour", "ShipFive", "ShipSix" };
 
 
         textArray[PlayerPrefs.GetInt("SelectedPlayer")].text = "SELECTED";
 
-        for (int i = 0; i < 5; ++i)
+        for (int i = 0; i < shipNumber; ++i)
         {   
             if (PlayerPrefs.GetInt(savedList[i]) == 0)
             {
@@ -128,7 +132,7 @@ public class ShopManager : MonoBehaviour
         }
     }
 
-    // shop logic for ship 4
+    // shop logic for ship 5
     public void shipFive()
     {
         // Debug.Log("Ship 2");
@@ -136,7 +140,7 @@ public class ShopManager : MonoBehaviour
         if (PlayerPrefs.GetInt("ShipFive", 0) == 1)
         {
             PlayerPrefs.SetInt("SelectedPlayer", 4);
-            shipFourText.text = "SELECTED";
+            shipFiveText.text = "SELECTED";
             ResetText(4);
             LoadGameScene();
         }
@@ -151,13 +155,36 @@ public class ShopManager : MonoBehaviour
         }
     }
 
+    // shop logic for ship 6
+    public void shipSix()
+    {
+        // Debug.Log("Ship 2");
+
+        if (PlayerPrefs.GetInt("ShipSix", 0) == 1)
+        {
+            PlayerPrefs.SetInt("SelectedPlayer", 5);
+            shipSixText.text = "SELECTED";
+            ResetText(5);
+            LoadGameScene();
+        }
+        else if (PlayerPrefs.GetInt("ShipSix", 0) == 0)
+        {
+            if (PlayerPrefs.GetInt("Coin") - SHIP_SIX_COST >= 0)
+            {
+                PlayerPrefs.SetInt("Coin", PlayerPrefs.GetInt("Coin") - SHIP_SIX_COST);
+                PlayerPrefs.SetInt("ShipSix", 1);
+                shipSixText.text = "SELECT";
+            }
+        }
+    }
+
     // resets all other ship text back to 'select' once a ship is 'selected'
     private void ResetText(int index)
     {
-        Text[] textArray = new Text[] { shipOneText, shipTwoText, shipThreeText, shipFourText, shipFiveText };
-        string[] savedList = new string[] { "ShipOne", "ShipTwo", "ShipThree", "ShipFour", "ShipFive" };
+        Text[] textArray = new Text[] { shipOneText, shipTwoText, shipThreeText, shipFourText, shipFiveText, shipSixText };
+        string[] savedList = new string[] { "ShipOne", "ShipTwo", "ShipThree", "ShipFour", "ShipFive", "ShipSix" };
 
-        for (int i = 0; i < 5; ++i)
+        for (int i = 0; i < shipNumber; ++i)
         {
             if (i != index && PlayerPrefs.GetInt(savedList[i]) == 1)
             {
