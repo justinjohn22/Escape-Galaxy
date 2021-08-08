@@ -7,26 +7,26 @@ public class Movement : MonoBehaviour
 
     public float movementSpeed;
     private float startTime;
-    private bool stingerSelected;
+    private bool specialPlayer;
 
     void Start()
     {
-        if (PlayerPrefs.GetInt("SelectedPlayer") == 4)
+        if (PlayerPrefs.GetInt("SelectedPlayer") == 4 || PlayerPrefs.GetInt("SelectedPlayer") == 6)
         {
-            stingerSelected = true;
+            specialPlayer = true;
         } else
         {
-            stingerSelected = false;
+            specialPlayer = false;
         }
     }
 
     // Update is called once per frame
     void Update()
     {   
-        
+
         transform.Translate(Vector2.up * movementSpeed * Time.deltaTime);
-       
-        if (stingerSelected)
+      
+        if (specialPlayer)
         {
             if (Input.GetMouseButtonDown(0))
             {
