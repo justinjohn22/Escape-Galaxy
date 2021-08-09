@@ -340,6 +340,7 @@ GameObject:
   - component: {fileID: 406622372}
   - component: {fileID: 406622375}
   - component: {fileID: 406622376}
+  - component: {fileID: 406622377}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -467,6 +468,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetFPS: 60
+--- !u!114 &406622377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406622370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78abc4a88e6c3694d8067d1756041876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instructionText: {fileID: 0}
 --- !u!1 &415982613
 GameObject:
   m_ObjectHideFlags: 0
@@ -752,7 +766,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 547202284}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0039, y: -7.4536, z: 0}
+  m_LocalPosition: {x: 0.0182, y: -7.4673, z: 0}
   m_LocalScale: {x: 0.04878045, y: 0.04477426, z: 0.053422567}
   m_Children: []
   m_Father: {fileID: 1125287709}
@@ -2013,7 +2027,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1315331206}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.003, y: -7.492, z: 87.4}
+  m_LocalPosition: {x: 0.012, y: -7.499, z: 87.4}
   m_LocalScale: {x: 0.024979357, y: 0.023766376, z: 0.021727754}
   m_Children: []
   m_Father: {fileID: 1125287709}
