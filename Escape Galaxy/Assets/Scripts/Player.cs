@@ -40,11 +40,16 @@ public class Player : MonoBehaviour
             Destroy(gameObject, 0);
         }
 
-        if (PlayerPrefs.GetInt("SelectedPlayer") == 2 || PlayerPrefs.GetInt("SelectedPlayer") == 6)
+        if (PlayerPrefs.GetInt("SelectedPlayer") == 2)
         {
             sideBoost = 1.5f;
         }
 
+        if (PlayerPrefs.GetInt("SelectedPlayer") == 6) 
+        {
+            sideBoost = 1.7f;
+        }
+ 
         if (PlayerPrefs.GetInt("SelectedPlayer") == 3)
         {
             fuelDecrement = 0.04f;

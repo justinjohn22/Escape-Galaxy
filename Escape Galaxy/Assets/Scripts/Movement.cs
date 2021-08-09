@@ -9,14 +9,21 @@ public class Movement : MonoBehaviour
     private float startTime;
     private bool specialPlayer;
 
+    private bool stinger, timeWarp;
+
     void Start()
     {
-        if (PlayerPrefs.GetInt("SelectedPlayer") == 4 || PlayerPrefs.GetInt("SelectedPlayer") == 6)
+        stinger = false;
+        timeWarp = false;
+         
+        if (PlayerPrefs.GetInt("SelectedPlayer") == 4)
         {
-            specialPlayer = true;
-        } else
+            stinger = true;
+        } 
+
+        if (PlayerPrefs.GetInt("SelectedPlayer") == 6)
         {
-            specialPlayer = false;
+            timeWarp = true;
         }
     }
 
@@ -26,7 +33,7 @@ public class Movement : MonoBehaviour
 
         transform.Translate(Vector2.up * movementSpeed * Time.deltaTime);
       
-        if (specialPlayer)
+        if (stinger || timeWarp)
         {
             if (Input.GetMouseButtonDown(0))
             {
@@ -39,8 +46,16 @@ public class Movement : MonoBehaviour
             } 
 
             if (startTime > 5f)
-            {
-                transform.Translate(Vector2.up * 1.5f * Time.deltaTime);
+            {   
+                if (stinger)
+                {
+                    transform.Translate(Vector2.up * 1.5f * Time.deltaTime);
+                }
+                
+                if (timeWarp)
+                {
+                    transform.Translate(Vector2.up * 2.5f * Time.deltaTime);
+                }
             }
 
         }
