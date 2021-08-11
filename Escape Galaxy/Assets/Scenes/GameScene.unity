@@ -480,7 +480,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78abc4a88e6c3694d8067d1756041876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  instructionText: {fileID: 0}
 --- !u!1 &415982613
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,8 +765,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 547202284}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0182, y: -7.4673, z: 0}
-  m_LocalScale: {x: 0.04878045, y: 0.04477426, z: 0.053422567}
+  m_LocalPosition: {x: -0.002, y: -7.575, z: 0}
+  m_LocalScale: {x: 0.047341023, y: 0.04394406, z: 0.053422567}
   m_Children: []
   m_Father: {fileID: 1125287709}
   m_RootOrder: 3
@@ -822,7 +821,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0
+        value: 0.09140015
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -830,17 +829,8 @@ TrailRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.011782163
-        value: 0.004253242
-        inSlope: -0.026851503
-        outSlope: -0.026851503
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.017633207
-        value: 0.15105721
+        time: 0.09287811
+        value: 0.14568612
         inSlope: -0.03394473
         outSlope: -0.03394473
         tangentMode: 0
@@ -848,8 +838,17 @@ TrailRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.9891092
-        value: 0.09786987
+        time: 0.5435615
+        value: 0.10833304
+        inSlope: -0.06823464
+        outSlope: -0.06823464
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.9939615
+        value: 0.13549805
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -931,18 +930,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.051250577, y: -0.15374374}
+  m_Offset: {x: -0.09161258, y: 2.7161589}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.31, y: 8.19}
+    oldSize: {x: 5.31, y: 13.81}
     newSize: {x: 3.07, y: 4.78}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.297591, y: 8.737669}
+  m_Size: {x: 4.248158, y: 8.04195}
   m_EdgeRadius: 0
 --- !u!114 &547202289
 MonoBehaviour:
@@ -1003,7 +1002,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a8cde1c821f215f4ba2cc60e5bec260b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e66daa50822b5b34cad23e33114af3ea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2027,8 +2026,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1315331206}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.012, y: -7.499, z: 87.4}
-  m_LocalScale: {x: 0.024979357, y: 0.023766376, z: 0.021727754}
+  m_LocalPosition: {x: 0.006, y: -7.492, z: 87.4}
+  m_LocalScale: {x: 0.020582778, y: 0.0199184, z: 0.021727754}
   m_Children: []
   m_Father: {fileID: 1125287709}
   m_RootOrder: 6
