@@ -288,7 +288,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.000030518, y: -156}
+  m_AnchoredPosition: {x: 0.000030518, y: -241.4}
   m_SizeDelta: {x: 782.71686, y: 144.21326}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &227729106
@@ -540,7 +540,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 112, y: -16.233032}
+  m_AnchoredPosition: {x: 112, y: -49}
   m_SizeDelta: {x: 359.96558, y: 124.53473}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1059976834
@@ -800,7 +800,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -34, y: -40.779053}
+  m_AnchoredPosition: {x: -34, y: -70}
   m_SizeDelta: {x: 61.997345, y: 75.44307}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1200247216
@@ -917,7 +917,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.000030518, y: -185}
+  m_AnchoredPosition: {x: 0.000030518, y: -276.4}
   m_SizeDelta: {x: 899.99994, y: 282.49976}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &1627693202
@@ -932,7 +932,7 @@ GameObject:
   - component: {fileID: 1627693205}
   - component: {fileID: 1627693204}
   m_Layer: 5
-  m_Name: Coin Number
+  m_Name: Temp Coin Number
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -954,7 +954,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 112, y: -108.26}
+  m_AnchoredPosition: {x: 112, y: -149.2}
   m_SizeDelta: {x: 656.74603, y: 107.427124}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1627693204
@@ -1011,7 +1011,7 @@ GameObject:
   - component: {fileID: 1725469453}
   - component: {fileID: 1725469452}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Coin Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1033,7 +1033,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 31, y: -32.817}
+  m_AnchoredPosition: {x: 31, y: -70}
   m_SizeDelta: {x: 69.1579, y: 75.44336}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1725469452
@@ -1216,7 +1216,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 4.6}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -449}
+  m_AnchoredPosition: {x: 0, y: -532}
   m_SizeDelta: {x: 591.0249, y: 178.35754}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &1958243457
@@ -1426,6 +1426,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -111, y: -16.233032}
+  m_AnchoredPosition: {x: -111, y: -49}
   m_SizeDelta: {x: 317.03442, y: 124.53467}
   m_Pivot: {x: 1, y: 1}
