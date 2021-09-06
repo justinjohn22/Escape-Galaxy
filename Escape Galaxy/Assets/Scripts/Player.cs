@@ -22,6 +22,13 @@ public class Player : MonoBehaviour
     private bool stopBoost;
     private float sideBoost;
 
+    // text modification 
+    private int newFontSize = 90;
+    private int fontSize = 77;
+    private float textTime = 0;
+    private bool startTimer = false;
+
+
     private bool deleteThis;
 
     private float startTime, endTime;
@@ -35,6 +42,8 @@ public class Player : MonoBehaviour
         boost = 4.5f; // defualt = 4
         sideBoost = 1.3f;
         shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<Shake>();
+        
+        PlayerPrefs.SetInt("FuelSpawn", 0);
 
         if (PlayerPrefs.GetInt("SelectedPlayer") != playerIndex) {
             Destroy(gameObject, 0);
@@ -65,11 +74,58 @@ public class Player : MonoBehaviour
         }
     }
 
+    void ChangeFuelColour(bool increment)
+    {
+        if (increment)
+        {
+            fuelDisplay.color = Color.green;
+        } else
+        {
+            fuelDisplay.color = Color.red;
+        }
+        fuelDisplay.fontSize = newFontSize;
+        fuelDisplay.fontStyle = FontStyle.Bold;
+    }
+
+    void ResetUIText()
+    {
+        fuelDisplay.color = Color.white;
+        fuelDisplay.fontSize = fontSize;
+        fuelDisplay.fontStyle = FontStyle.Normal;
+    }
+
     // Update is called once per frame
     void Update()
     {
         healthDisplay.text = health.ToString();
         fuelDisplay.text = Math.Round(fuel).ToString();
+
+        if (PlayerPrefs.GetInt("FuelSpawn") == 1)
+        {
+            ChangeFuelColour(true);
+            startTimer = true;
+            PlayerPrefs.SetInt("FuelSpawn", 0);
+        }
+        else if (PlayerPrefs.GetInt("FuelSpawn") == 2)
+        {
+            ChangeFuelColour(false);
+            startTimer = true;
+            PlayerPrefs.SetInt("FuelSpawn", 0);
+        }
+
+        if (startTimer)
+        {
+            textTime+=0.05f;
+        }
+
+        Debug.Log(textTime);
+
+        if (textTime > 3.0f)
+        {
+            textTime = 0;
+            ResetUIText();
+            startTimer = false;
+        }
 
         fuel -= fuelDecrement;
 
