@@ -23,28 +23,33 @@ public class ShopManager : MonoBehaviour
     private int SHIP_SIX_COST = 15;
     private int SHIP_SEVEN_COST = 10000;
 
+    
+
     private int shipNumber = 7;
 
     void Start()
     {
         // default ship 
         PlayerPrefs.SetInt("ShipOne", 1);
-      
+
         // initial text setup for selected ship
         Text[] textArray = new Text[] { shipOneText, shipTwoText, shipThreeText, shipFourText, shipFiveText, shipSixText, shipSevenText };
+
         string[] savedList = new string[] { "ShipOne", "ShipTwo", "ShipThree", "ShipFour", "ShipFive", "ShipSix", "ShipSeven" };
 
+        int[] cost_array = new int[] { SHIP_TWO_COST, SHIP_THREE_COST, SHIP_FOUR_COST, SHIP_FIVE_COST, SHIP_SIX_COST, SHIP_SEVEN_COST };
 
         textArray[PlayerPrefs.GetInt("SelectedPlayer")].text = "SELECTED";
 
         for (int i = 0; i < shipNumber; ++i)
         {   
-            if (PlayerPrefs.GetInt(savedList[i]) == 0)
+            if (PlayerPrefs.GetInt(savedList[i]) == 0 && i != 0)
             {
-                textArray[i].text = "BUY";
-
-            } else if (PlayerPrefs.GetInt(savedList[i]) == 1 && PlayerPrefs.GetInt("SelectedPlayer") != i)
+                textArray[i].text = (cost_array[i - 1]).ToString();
+            } 
+             else if (PlayerPrefs.GetInt(savedList[i]) == 1 && PlayerPrefs.GetInt("SelectedPlayer") != i)
             {
+                
                 textArray[i].text = "SELECT";
             }
         }
