@@ -32,6 +32,8 @@ public class ShopManager : MonoBehaviour
         // default ship 
         PlayerPrefs.SetInt("ShipOne", 1);
 
+        // PlayerPrefs.DeleteAll();
+
         // initial text setup for selected ship
         Text[] textArray = new Text[] { shipOneText, shipTwoText, shipThreeText, shipFourText, shipFiveText, shipSixText, shipSevenText };
 
