@@ -13,6 +13,7 @@ public class ShopManager : MonoBehaviour
     public Text shipFiveText;
     public Text shipSixText;
     public Text shipSevenText;
+    public Text shipEightText;
 
     public Text totalCoins;
 
@@ -22,10 +23,10 @@ public class ShopManager : MonoBehaviour
     private int SHIP_FIVE_COST = 1850;
     private int SHIP_SIX_COST = 15;
     private int SHIP_SEVEN_COST = 10000;
+    private int SHIP_EIGHT_COST = 15000;
 
-    
 
-    private int shipNumber = 7;
+    private int shipNumber = 8;
 
     void Start()
     {
@@ -35,11 +36,19 @@ public class ShopManager : MonoBehaviour
         // PlayerPrefs.DeleteAll();
 
         // initial text setup for selected ship
-        Text[] textArray = new Text[] { shipOneText, shipTwoText, shipThreeText, shipFourText, shipFiveText, shipSixText, shipSevenText };
+        Text[] textArray = new Text[] { shipOneText, shipTwoText, shipThreeText, 
+                                        shipFourText, shipFiveText, shipSixText, 
+                                        shipSevenText, shipEightText };
 
-        string[] savedList = new string[] { "ShipOne", "ShipTwo", "ShipThree", "ShipFour", "ShipFive", "ShipSix", "ShipSeven" };
+        string[] savedList = new string[] { 
+                                        "ShipOne", "ShipTwo", "ShipThree", 
+                                        "ShipFour", "ShipFive", "ShipSix", 
+                                        "ShipSeven", "ShipEight" };
 
-        int[] cost_array = new int[] { SHIP_TWO_COST, SHIP_THREE_COST, SHIP_FOUR_COST, SHIP_FIVE_COST, SHIP_SIX_COST, SHIP_SEVEN_COST };
+        int[] cost_array = new int[] { SHIP_TWO_COST, SHIP_THREE_COST, 
+                                       SHIP_FOUR_COST, SHIP_FIVE_COST, 
+                                       SHIP_SIX_COST, SHIP_SEVEN_COST,
+                                       SHIP_EIGHT_COST };
 
         textArray[PlayerPrefs.GetInt("SelectedPlayer")].text = "SELECTED";
 
@@ -49,9 +58,9 @@ public class ShopManager : MonoBehaviour
             {
                 textArray[i].text = (cost_array[i - 1]).ToString();
             } 
-             else if (PlayerPrefs.GetInt(savedList[i]) == 1 && PlayerPrefs.GetInt("SelectedPlayer") != i)
+            else if (PlayerPrefs.GetInt(savedList[i]) == 1 
+                && PlayerPrefs.GetInt("SelectedPlayer") != i)
             {
-                
                 textArray[i].text = "SELECT";
             }
         }
@@ -216,12 +225,40 @@ public class ShopManager : MonoBehaviour
         }
     }
 
+    // shop logic for ship 7
+    public void shipEight()
+    {
+        // Debug.Log("Ship 2");
+
+        if (PlayerPrefs.GetInt("ShipEight", 0) == 1)
+        {
+            PlayerPrefs.SetInt("SelectedPlayer", 7);
+            shipSevenText.text = "SELECTED";
+            ResetText(7);
+            LoadGameScene();
+        }
+        else if (PlayerPrefs.GetInt("ShipSeven", 0) == 0)
+        {
+            if (PlayerPrefs.GetInt("Coin") - SHIP_EIGHT_COST >= 0)
+            {
+                PlayerPrefs.SetInt("Coin", PlayerPrefs.GetInt("Coin") - SHIP_EIGHT_COST);
+                PlayerPrefs.SetInt("ShipEight", 1);
+                shipSevenText.text = "SELECT";
+            }
+        }
+    }
+
     // resets all other ship text back to 'select' once a ship is 'selected'
     private void ResetText(int index)
     {
         // initial text setup for selected ship
-        Text[] textArray = new Text[] { shipOneText, shipTwoText, shipThreeText, shipFourText, shipFiveText, shipSixText, shipSevenText };
-        string[] savedList = new string[] { "ShipOne", "ShipTwo", "ShipThree", "ShipFour", "ShipFive", "ShipSix", "ShipSeven" };
+        Text[] textArray = new Text[] { shipOneText, shipTwoText, shipThreeText,
+                                        shipFourText, shipFiveText, shipSixText,
+                                        shipSevenText, shipEightText };
+
+        string[] savedList = new string[] {"ShipOne", "ShipTwo", "ShipThree",
+                                           "ShipFour", "ShipFive", "ShipSix",
+                                           "ShipSeven", "ShipEight" };
 
         for (int i = 0; i < shipNumber; ++i)
         {

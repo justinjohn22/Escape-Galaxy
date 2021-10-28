@@ -8,6 +8,8 @@ TagManager:
   - ScreenShake
   - Player Position
   - FuelSpawn
+  - Ship 02
+  - StrangeQuark
   layers:
   - Default
   - TransparentFX

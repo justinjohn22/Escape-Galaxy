@@ -19,17 +19,21 @@ public class Obstacle : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") || other.CompareTag("StrangeQuark"))
         {
-            if (!instantKill)
-            {
-                shake.CamShake();
-                other.GetComponent<Player>().health -= damage;
-            } 
-            else
-            {   
-                other.GetComponent<Player>().health = KILL_VALUE;
+
+            if (other.CompareTag("Player")) {
+                if (!instantKill)
+                {
+                    shake.CamShake();
+                    other.GetComponent<Player>().health -= damage;
+                }
+                else
+                {
+                    other.GetComponent<Player>().health = KILL_VALUE;
+                }
             }
+            
             
             if (remove)
             {
