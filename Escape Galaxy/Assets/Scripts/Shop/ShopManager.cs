@@ -233,17 +233,17 @@ public class ShopManager : MonoBehaviour
         if (PlayerPrefs.GetInt("ShipEight", 0) == 1)
         {
             PlayerPrefs.SetInt("SelectedPlayer", 7);
-            shipSevenText.text = "SELECTED";
+            shipEightText.text = "SELECTED";
             ResetText(7);
             LoadGameScene();
         }
-        else if (PlayerPrefs.GetInt("ShipSeven", 0) == 0)
+        else if (PlayerPrefs.GetInt("ShipEight", 0) == 0)
         {
             if (PlayerPrefs.GetInt("Coin") - SHIP_EIGHT_COST >= 0)
             {
                 PlayerPrefs.SetInt("Coin", PlayerPrefs.GetInt("Coin") - SHIP_EIGHT_COST);
                 PlayerPrefs.SetInt("ShipEight", 1);
-                shipSevenText.text = "SELECT";
+                shipEightText.text = "SELECT";
             }
         }
     }

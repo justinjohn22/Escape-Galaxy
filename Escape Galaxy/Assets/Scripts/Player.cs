@@ -49,7 +49,7 @@ public class Player : MonoBehaviour
             Destroy(gameObject, 0);
         }
 
-        if (PlayerPrefs.GetInt("SelectedPlayer") == 2)
+        if (PlayerPrefs.GetInt("SelectedPlayer") == 2 || PlayerPrefs.GetInt("SelectedPlayer") == 7)
         {
             sideBoost = 1.5f;
         }
