@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Quark : MonoBehaviour
+public class Star : MonoBehaviour
 {
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector2.up * Time.deltaTime * 14.0f);
+        transform.Translate(Vector2.up * Time.deltaTime * 3.0f);
     }
-   
 }
