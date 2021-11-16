@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8128285853801746977
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5464366313203453199}
+  - component: {fileID: 8209008269839078768}
+  m_Layer: 0
+  m_Name: Asteroid 1
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5464366313203453199
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8128285853801746977}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.74}
+  m_AnchoredPosition: {x: 150, y: 252}
+  m_SizeDelta: {x: 100, y: 76}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8209008269839078768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8128285853801746977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c12fea1acdec5664cb9f6e743ab9a4ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  asteroids:
+  - {fileID: 5922880716952646480, guid: d29492af2733863428f35a10398abfed, type: 3}
+  - {fileID: 8167651743058290496, guid: 8b9e05f2b0822204fb26e296c8d1de53, type: 3}
+  - {fileID: 8798285066857041568, guid: faf9cd08192d81548af4f939b7aecb83, type: 3}
+  - {fileID: 2247645226414893055, guid: 3c01c3c6f99206b4ea37a658d2e5a148, type: 3}
+  - {fileID: 4924313599661377536, guid: 9808134dfb17bff4bb07126c42a5cf8c, type: 3}
+  - {fileID: 984089684906369599, guid: b96e8d72d30798942a69527a19877fd8, type: 3}
+  - {fileID: 9110683546884454311, guid: c2bbe509f13939247aacdb9b5c15d27c, type: 3}
+  - {fileID: 4757171279161686878, guid: 1d512b0a3fcebaa4597c87990e281726, type: 3}
