@@ -7,7 +7,7 @@ using System;
 
 public class Player : MonoBehaviour
 {
-  public float playerSpeed;
+
   public int health;
   public float fuel;
   public float fuelDecrement;
@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
   private float boost;
   private bool stopBoost;
   private float sideBoost;
+
+  private float playerSpeed = 2.25f;
 
   // text modification 
   private int newFontSize = 90;
