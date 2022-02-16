@@ -6,7 +6,7 @@ public class AsteroidReset : MonoBehaviour
 {
   void OnTriggerEnter2D(Collider2D other)
   {
-    if (other.CompareTag("Empty"))
+    if (other.CompareTag("Empty") || other.CompareTag("EmptyRight"))
     {
       PlayerPrefs.SetInt("AsteroidCount", 0);
     }

@@ -11,6 +11,7 @@ TagManager:
   - Ship 02
   - StrangeQuark
   - Empty
+  - EmptyRight
   layers:
   - Default
   - TransparentFX

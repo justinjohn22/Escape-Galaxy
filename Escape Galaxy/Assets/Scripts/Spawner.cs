@@ -4,35 +4,42 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-  public GameObject[] obstaclePattern;
-
-  private float timeBtwSpawn;
-  public float startTimeBtwSpawn;
-  public float decreaseTime;
-  public float minTime = 0.65f;
+ public GameObject[] obstaclePattern;
+ public float startTimeBtwSpawn;
+ public float decreaseTime;
+ public float minTime = 0.65f;
 
 
-  // Update is called once per frame
-  void Update()
+ private bool initial = true;
+ private float timeBtwSpawn;
+
+ // Update is called once per frame
+ void Update()
+ {
+  if (timeBtwSpawn <= 0)
   {
-    if (timeBtwSpawn <= 0)
-    {
-      int randInt = Random.Range(0, obstaclePattern.Length);
+   int randInt = Random.Range(0, obstaclePattern.Length);
+   if (!initial)
+   {
+    Instantiate(obstaclePattern[randInt], transform.position, Quaternion.identity);
+   }
+   else
+   {
+    initial = false;
+   }
 
-      Instantiate(obstaclePattern[randInt], transform.position, Quaternion.identity);
+   timeBtwSpawn = startTimeBtwSpawn;
 
-      timeBtwSpawn = startTimeBtwSpawn;
-
-      if (startTimeBtwSpawn >= minTime)
-      {
-        startTimeBtwSpawn -= decreaseTime;
-      }
-
-    }
-    else
-    {
-      timeBtwSpawn -= Time.deltaTime;
-    }
+   if (startTimeBtwSpawn >= minTime)
+   {
+    startTimeBtwSpawn -= decreaseTime;
+   }
 
   }
+  else
+  {
+   timeBtwSpawn -= Time.deltaTime;
+  }
+
+ }
 }

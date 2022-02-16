@@ -19,7 +19,7 @@ public class ScoreManager : MonoBehaviour
 
     coinIncrement = Random.Range(1, 3);
 
-    if (other.CompareTag("Star") || other.CompareTag("Empty"))
+    if (other.CompareTag("Star") || other.CompareTag("Empty") || other.CompareTag("EmptyRight"))
     {
       // add score and coin if star has collided with score manager
       coin += coinIncrement;

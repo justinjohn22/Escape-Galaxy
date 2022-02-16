@@ -5,9 +5,19 @@ using UnityEngine;
 public class AsteroidMovement : MonoBehaviour
 {
 
+  public bool moveLeft;
+
   // Update is called once per frame
   void Update()
   {
-    transform.Translate(Vector2.right * 3 * Time.deltaTime);
+    if (moveLeft)
+    {
+      transform.Translate(Vector2.left * 3 * Time.deltaTime);
+    }
+    else
+    {
+      transform.Translate(Vector2.right * 3 * Time.deltaTime);
+    }
+
   }
 }

@@ -16,7 +16,7 @@ public class ShopManager : MonoBehaviour
     public Text shipEightText;
 
     public Text totalCoins;
-
+ 
     private int SHIP_TWO_COST = 550;
     private int SHIP_THREE_COST = 850;
     private int SHIP_FOUR_COST = 1350;
@@ -55,8 +55,13 @@ public class ShopManager : MonoBehaviour
         for (int i = 0; i < shipNumber; ++i)
         {   
             if (PlayerPrefs.GetInt(savedList[i]) == 0 && i != 0)
-            {
-                textArray[i].text = (cost_array[i - 1]).ToString();
+            {   
+                if (i != 5) {
+                    textArray[i].text = (cost_array[i - 1]).ToString();
+                } else {
+                     textArray[i].text = "Free";
+                }
+                
             } 
             else if (PlayerPrefs.GetInt(savedList[i]) == 1 
                 && PlayerPrefs.GetInt("SelectedPlayer") != i)
@@ -192,11 +197,15 @@ public class ShopManager : MonoBehaviour
             LoadGameScene();
         }
         else if (PlayerPrefs.GetInt("ShipSix", 0) == 0)
-        {
-            if (PlayerPrefs.GetInt("Coin") - SHIP_SIX_COST >= 0)
-            {
-                PlayerPrefs.SetInt("Coin", PlayerPrefs.GetInt("Coin") - SHIP_SIX_COST);
-                PlayerPrefs.SetInt("ShipSix", 1);
+        {   
+            AdManager.Instance.ShowAd("stub", true);
+            // if (PlayerPrefs.GetInt("Coin") - SHIP_SIX_COST >= 0)
+            // {
+            //     PlayerPrefs.SetInt("Coin", PlayerPrefs.GetInt("Coin") - SHIP_SIX_COST);
+            //     PlayerPrefs.SetInt("ShipSix", 1);
+            //     shipSixText.text = "SELECT";
+            // }
+            if (PlayerPrefs.GetInt("ShipSix", 0) == 0) {
                 shipSixText.text = "SELECT";
             }
         }

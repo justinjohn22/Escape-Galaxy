@@ -23,5 +23,11 @@ public class PlayGame : MonoBehaviour
         SceneManager.LoadScene("Shop");
     }
 
+    public void FreeCoin() {
+        Scene scene = SceneManager.GetActiveScene();
+        // Debug.Log("CURRENT SCENE: " + scene.name);
+        AdManager.Instance.ShowAd(scene.name, false);
+    }
+
 
 }

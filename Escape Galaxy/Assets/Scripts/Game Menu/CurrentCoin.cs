@@ -11,7 +11,7 @@ public class CurrentCoin : MonoBehaviour
     public Text totalCoin;
     public Text highScore;
     public Text GameOverCause;
-
+    
     private int RESET_VALUE = 0;
     private float startTime;
     private int score, coin, coinCollected;
@@ -19,6 +19,8 @@ public class CurrentCoin : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {   
+        //button.GetComponent<RectTransform>().sizeDelta = new Vector2(300, 100);
+
         // getting values from player prefs
         score = PlayerPrefs.GetInt("TempScore");
         coin = PlayerPrefs.GetInt("Coin") - PlayerPrefs.GetInt("CurrentCoin");
@@ -64,6 +66,12 @@ public class CurrentCoin : MonoBehaviour
                 coinCollected--;
                 startTime = 0f;
             }
+        }
+
+        if (PlayerPrefs.GetInt("AdFinished") == 1) {
+            totalCoin.text = PlayerPrefs.GetInt("Coin").ToString();
+            coinCollected += 300;
+            PlayerPrefs.SetInt("AdFinished", 0);
         }
 
     }

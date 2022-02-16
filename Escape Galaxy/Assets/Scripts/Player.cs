@@ -5,8 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
 
-public class Player : MonoBehaviour
-{
+public class Player: MonoBehaviour {
 
   public int health;
   public float fuel;
@@ -30,104 +29,84 @@ public class Player : MonoBehaviour
   private float textTime = 0;
   private bool startTimer = false;
 
-
   private bool deleteThis;
 
   private float startTime, endTime;
 
   // Start is called before the first frame update
-  void Start()
-  {
+  void Start() {
     movingLeft = true;
     firstInput = false;
     stopBoost = false;
-    boost = 4.5f; // defualt = 4
-    sideBoost = 1.3f;
-    shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<Shake>();
+    boost = 3f; // defualt = 4
+    sideBoost = 1.35f;
+    shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent < Shake > ();
 
     // Setup asteroid spawner
     PlayerPrefs.SetInt("AsteroidCount", 0);
 
     PlayerPrefs.SetInt("FuelSpawn", 0);
 
-    if (PlayerPrefs.GetInt("SelectedPlayer") != playerIndex)
-    {
+    if (PlayerPrefs.GetInt("SelectedPlayer") != playerIndex) {
       Destroy(gameObject, 0);
     }
 
-    if (PlayerPrefs.GetInt("SelectedPlayer") == 2 || PlayerPrefs.GetInt("SelectedPlayer") == 7)
-    {
-      sideBoost = 1.5f;
+    if (PlayerPrefs.GetInt("SelectedPlayer") == 2 || PlayerPrefs.GetInt("SelectedPlayer") == 7) {
+      sideBoost = 1.6f;
     }
 
-    if (PlayerPrefs.GetInt("SelectedPlayer") == 6)
-    {
-      sideBoost = 1.7f;
+    if (PlayerPrefs.GetInt("SelectedPlayer") == 6) {
+      sideBoost = 1.6f;
     }
 
-    if (PlayerPrefs.GetInt("SelectedPlayer") == 3)
-    {
+    if (PlayerPrefs.GetInt("SelectedPlayer") == 3) {
       fuelDecrement = 0.04f;
     }
 
   }
 
-  void OnTriggerEnter2D(Collider2D other)
-  {
-    if (other.CompareTag("Player Position"))
-    {
+  void OnTriggerEnter2D(Collider2D other) {
+    if (other.CompareTag("Player Position")) {
       stopBoost = true;
     }
   }
 
-  void ChangeFuelColour(bool increment)
-  {
-    if (increment)
-    {
+  void ChangeFuelColour(bool increment) {
+    if (increment) {
       fuelDisplay.color = Color.green;
-    }
-    else
-    {
+    } else {
       fuelDisplay.color = Color.red;
     }
     fuelDisplay.fontSize = newFontSize;
     fuelDisplay.fontStyle = FontStyle.Bold;
   }
 
-  void ResetUIText()
-  {
+  void ResetUIText() {
     fuelDisplay.color = Color.white;
     fuelDisplay.fontSize = fontSize;
     fuelDisplay.fontStyle = FontStyle.Normal;
   }
 
   // Update is called once per frame
-  void Update()
-  {
+  void Update() {
     healthDisplay.text = health.ToString();
     fuelDisplay.text = Math.Round(fuel).ToString();
 
-    if (PlayerPrefs.GetInt("FuelSpawn") == 1)
-    {
+    if (PlayerPrefs.GetInt("FuelSpawn") == 1) {
       ChangeFuelColour(true);
       startTimer = true;
       PlayerPrefs.SetInt("FuelSpawn", 0);
-    }
-    else if (PlayerPrefs.GetInt("FuelSpawn") == 2)
-    {
+    } else if (PlayerPrefs.GetInt("FuelSpawn") == 2) {
       ChangeFuelColour(false);
       startTimer = true;
       PlayerPrefs.SetInt("FuelSpawn", 0);
     }
 
-    if (startTimer)
-    {
+    if (startTimer) {
       textTime += 0.05f;
     }
 
-
-    if (textTime > 3.0f)
-    {
+    if (textTime > 3.0f) {
       textTime = 0;
       ResetUIText();
       startTimer = false;
@@ -136,59 +115,43 @@ public class Player : MonoBehaviour
     fuel -= fuelDecrement;
 
     // defaul -> transform.position.y < 2
-    if (!stopBoost)
-    {
-      shake.CamShake();
+    if (!stopBoost) {
+      //shake.CamShake();
       transform.Translate(Vector2.up * Time.deltaTime * boost);
     }
 
-    if (health < 0 || fuel <= 0)
-    {
-      if (health < 0)
-      {
+    if (health < 0 || fuel <= 0) {
+      if (health < 0) {
         PlayerPrefs.SetString("GameOverCause", "health");
       }
-      if (fuel <= 0)
-      {
+      if (fuel <= 0) {
         PlayerPrefs.SetString("GameOverCause", "fuel");
       }
       SceneManager.LoadScene("GameOver");
     }
 
-    if (Input.GetMouseButtonDown(0))
-    {
+    if (Input.GetMouseButtonDown(0)) {
       firstInput = true;
       movingLeft = !movingLeft;
       startTime = Time.time;
     }
 
-    if (Input.GetMouseButtonUp(0))
-    {
+    if (Input.GetMouseButtonUp(0)) {
       startTime = 0;
     }
 
-
-    if (firstInput)
-    {
-
-      if (movingLeft && startTime > 1f)
-      {
-        transform.Translate(Vector2.left * Time.deltaTime * playerSpeed * sideBoost);
+    if (stopBoost) {
+        if (firstInput) {
+          if (movingLeft && startTime > 1f) {
+            transform.Translate(Vector2.left * Time.deltaTime * playerSpeed * sideBoost);
+          } else if (!movingLeft && startTime > 1f) {
+            transform.Translate(Vector2.right * Time.deltaTime * playerSpeed * sideBoost);
+          } else if (movingLeft) {
+            transform.Translate(Vector2.left * Time.deltaTime * playerSpeed);
+          } else if (!movingLeft) {
+            transform.Translate(Vector2.right * Time.deltaTime * playerSpeed);
+          }
       }
-      else if (!movingLeft && startTime > 1f)
-      {
-        transform.Translate(Vector2.right * Time.deltaTime * playerSpeed * sideBoost);
-      }
-      else if (movingLeft)
-      {
-        transform.Translate(Vector2.left * Time.deltaTime * playerSpeed);
-      }
-      else if (!movingLeft)
-      {
-        transform.Translate(Vector2.right * Time.deltaTime * playerSpeed);
-      }
-
     }
-
   }
 }
