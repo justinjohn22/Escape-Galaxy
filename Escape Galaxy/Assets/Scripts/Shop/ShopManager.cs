@@ -198,13 +198,7 @@ public class ShopManager : MonoBehaviour
         }
         else if (PlayerPrefs.GetInt("ShipSix", 0) == 0)
         {   
-            AdManager.Instance.ShowAd("stub", true);
-            // if (PlayerPrefs.GetInt("Coin") - SHIP_SIX_COST >= 0)
-            // {
-            //     PlayerPrefs.SetInt("Coin", PlayerPrefs.GetInt("Coin") - SHIP_SIX_COST);
-            //     PlayerPrefs.SetInt("ShipSix", 1);
-            //     shipSixText.text = "SELECT";
-            // }
+            AdManager.Instance.ShowAd("stub", true, false, 0);
             if (PlayerPrefs.GetInt("ShipSix", 0) == 0) {
                 shipSixText.text = "SELECT";
             }

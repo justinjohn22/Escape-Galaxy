@@ -4,7 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayGame : MonoBehaviour
-{
+{   
+    private bool SPECIAL_AD = false;
+    private int NO_COINS = 0;
     public void playGame()
     {   
         // load main game scene
@@ -26,8 +28,7 @@ public class PlayGame : MonoBehaviour
     public void FreeCoin() {
         Scene scene = SceneManager.GetActiveScene();
         // Debug.Log("CURRENT SCENE: " + scene.name);
-        AdManager.Instance.ShowAd(scene.name, false);
+        AdManager.Instance.ShowAd(scene.name, SPECIAL_AD, SPECIAL_AD, NO_COINS);
     }
-
 
 }

@@ -11,8 +11,10 @@ public class Player: MonoBehaviour {
   public float fuel;
   public float fuelDecrement;
   public Text healthDisplay;
+  public Text lowFuelText;
   public Text fuelDisplay;
   public int playerIndex;
+  public GameObject controlGuide;
 
   private Shake shake;
   private bool movingLeft;
@@ -21,7 +23,7 @@ public class Player: MonoBehaviour {
   private bool stopBoost;
   private float sideBoost;
 
-  private float playerSpeed = 2.25f;
+  private float playerSpeed = 2.05f;
 
   // text modification 
   private int newFontSize = 90;
@@ -44,6 +46,8 @@ public class Player: MonoBehaviour {
 
     // Setup asteroid spawner
     PlayerPrefs.SetInt("AsteroidCount", 0);
+    
+    PlayerPrefs.SetInt("DisableDoubleButton", 0);
 
     PlayerPrefs.SetInt("FuelSpawn", 0);
 
@@ -52,14 +56,14 @@ public class Player: MonoBehaviour {
     }
 
     if (PlayerPrefs.GetInt("SelectedPlayer") == 2 || PlayerPrefs.GetInt("SelectedPlayer") == 7) {
-      sideBoost = 1.6f;
+      sideBoost = 1.5f;
     }
 
     if (PlayerPrefs.GetInt("SelectedPlayer") == 6) {
-      sideBoost = 1.6f;
+      sideBoost = 1.5f;
     }
 
-    if (PlayerPrefs.GetInt("SelectedPlayer") == 3) {
+    if (PlayerPrefs.GetInt("SelectedPlayer") == 3 || PlayerPrefs.GetInt("SelectedPlayer") == 6){
       fuelDecrement = 0.04f;
     }
 
@@ -68,6 +72,7 @@ public class Player: MonoBehaviour {
   void OnTriggerEnter2D(Collider2D other) {
     if (other.CompareTag("Player Position")) {
       stopBoost = true;
+      Destroy(controlGuide, 0);
     }
   }
 
@@ -91,6 +96,12 @@ public class Player: MonoBehaviour {
   void Update() {
     healthDisplay.text = health.ToString();
     fuelDisplay.text = Math.Round(fuel).ToString();
+
+    if (fuel >= 15.0f) {
+      lowFuelText.text = "";
+    } else {
+      lowFuelText.text = "LOW FUEL";
+    }
 
     if (PlayerPrefs.GetInt("FuelSpawn") == 1) {
       ChangeFuelColour(true);

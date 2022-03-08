@@ -11,10 +11,11 @@ public class CurrentCoin : MonoBehaviour
     public Text totalCoin;
     public Text highScore;
     public Text GameOverCause;
+    public Button doubleCoinButton;
     
     private int RESET_VALUE = 0;
     private float startTime;
-    private int score, coin, coinCollected;
+    private int score, coin, coinCollected, coinForAd;
 
     // Start is called before the first frame update
     void Start()
@@ -47,7 +48,9 @@ public class CurrentCoin : MonoBehaviour
         {
             totalCoin.text = PlayerPrefs.GetInt("Coin").ToString();
         }
-       
+
+        coinForAd = coinCollected;
+
         // reset player prefs after values are stored
         ResetPlayerPrefs();
     }
@@ -74,6 +77,22 @@ public class CurrentCoin : MonoBehaviour
             PlayerPrefs.SetInt("AdFinished", 0);
         }
 
+        if (PlayerPrefs.GetInt("CoinDoubled") == 1) {
+            coinCollected += coinForAd;
+            coinsCollected.text = "+" + coinForAd * 2;
+            PlayerPrefs.SetInt("CoinDoubled", 0);
+        }
+
+    }
+    public void DoubleCoin() {
+        if (PlayerPrefs.GetInt("DisableDoubleButton", 0) == 0 && coinForAd > 0) {
+            bool doubleCoins = true;
+            string scene = "NO_SCENE_REQUIRED";
+            bool SPECIAL_AD = false;
+            // Debug.Log("Double Amount: " + coinForAd);
+            AdManager.Instance.ShowAd(scene, SPECIAL_AD, doubleCoins, coinForAd);
+            PlayerPrefs.SetInt("DisableDoubleButton", 1);
+        }
     }
 
     private void ResetPlayerPrefs()

@@ -16,8 +16,9 @@ public class AdManager : MonoBehaviour, IUnityAdsListener
 
     public static AdManager Instance;
     private string _currentScene = "null";
-    private bool _unlockPlayer = false;
-
+    private bool _unlockPlayer, _doubleCoins = false;
+    private int _doubleAmount = 0;
+    private int REWARD_AMOUNT = 300;
     void Awake() {
         if (Instance != null && Instance != this) {
             Destroy(gameObject);
@@ -30,10 +31,12 @@ public class AdManager : MonoBehaviour, IUnityAdsListener
         }
     }   
 
-    public void ShowAd(string scene, bool unlockPlayer) {
+    public void ShowAd(string scene, bool unlockPlayer, bool doubleCoins, int doubleAmount) {
         Advertisement.Show("rewardedVideo");
         _currentScene = scene;
         _unlockPlayer = unlockPlayer;
+        _doubleAmount = doubleAmount;
+        _doubleCoins = doubleCoins;
     }
 
     public void OnUnityAdsDidError(string message) {
@@ -41,15 +44,23 @@ public class AdManager : MonoBehaviour, IUnityAdsListener
     }
 
     public void OnUnityAdsDidFinish(string placementId, ShowResult showResult) {
+        Debug.Log("Ad platform: " + gameId);
         switch (showResult){
-            case ShowResult.Finished:
-                PlayerPrefs.SetInt("Coin", PlayerPrefs.GetInt("Coin") + 300);
-                if (_currentScene == "GameOver"){
+            case ShowResult.Finished:  
+                if (_currentScene == "GameOver" && !_doubleCoins){
                     PlayerPrefs.SetInt("AdFinished", 1);
                 }
-                if (_unlockPlayer) {
+                if (_unlockPlayer && !_doubleCoins) {
                     PlayerPrefs.SetInt("ShipSix", 1);
                     _unlockPlayer = false;
+                } else {
+                    if (!_doubleCoins) {
+                        PlayerPrefs.SetInt("Coin", PlayerPrefs.GetInt("Coin") + REWARD_AMOUNT);
+                    }
+                }
+                if (_doubleCoins) {
+                    PlayerPrefs.SetInt("Coin", PlayerPrefs.GetInt("Coin") + _doubleAmount);
+                    PlayerPrefs.SetInt("CoinDoubled", 1);
                 }
                 break;
             case ShowResult.Skipped:
