@@ -31,4 +31,10 @@ public class PlayGame : MonoBehaviour
         AdManager.Instance.ShowAd(scene.name, SPECIAL_AD, SPECIAL_AD, NO_COINS);
     }
 
+    // Tutorial
+    public void tutorial()
+    {
+        // load main menu
+        SceneManager.LoadScene("Tutorial");
+    }
 }

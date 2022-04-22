@@ -9,7 +9,7 @@ public class Player: MonoBehaviour {
 
   public int health;
   public float fuel;
-  public float fuelDecrement;
+  
   public Text healthDisplay;
   public Text lowFuelText;
   public Text fuelDisplay;
@@ -22,6 +22,7 @@ public class Player: MonoBehaviour {
   private float boost;
   private bool stopBoost;
   private float sideBoost;
+  private float fuelDecrement;
 
   private float playerSpeed = 2.05f;
 
@@ -42,6 +43,7 @@ public class Player: MonoBehaviour {
     stopBoost = false;
     boost = 3f; // defualt = 4
     sideBoost = 1.35f;
+    fuelDecrement = 0.05f;
     shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent < Shake > ();
 
     // Setup asteroid spawner
@@ -65,6 +67,10 @@ public class Player: MonoBehaviour {
 
     if (PlayerPrefs.GetInt("SelectedPlayer") == 3 || PlayerPrefs.GetInt("SelectedPlayer") == 6){
       fuelDecrement = 0.04f;
+    }
+
+    if (PlayerPrefs.GetInt("HighScore") > 15) {
+      Destroy(controlGuide, 0);
     }
 
   }
